@@ -1,0 +1,78 @@
+<view class="main-page">
+	<view class="train-function-part">
+		<view  
+			wx:for="{{functionRow}}"
+			wx:for-item="functions"
+			>
+			<template is="tFunctionRow" data="{{functions}}"></template>
+		</view>
+	</view>
+	<view class="splitBlock"></view>
+	<view class="news-part">
+		<view class="newsContents" wx:for="{{news}}" wx:for-item="newsItem">
+			<view class="newsBanner">
+				<view class="bannerImg">
+					<image src="../../Img/news.png"></image> 
+				</view>
+				<view class="bannerText">
+					{{newsItem.type}}
+				</view>
+			</view>
+			<view class="newsContent">
+				<view class="newsTitle">
+					<text>{{newsItem.title}}</text>
+				</view>
+				<view class="newsBody">
+					<view wx:if="{{newsItem.imgUrl !== ''}}" >
+						<image src="{{newsItem.imgUrl}}" mode="aspectFill"></image>
+					</view>
+					<view wx:else class="newsContent">
+						<text>{{newsItem.newsContent}}</text>
+					</view>
+				</view>
+			</view>
+			<view class="newsTime" bindtap="tapa" data-v="{{newsItem.time}}">
+				<text>发布于 {{newsItem.time}}</text>
+			</view>
+			<view class="splitBlock" ></view>
+		</view>
+	</view>
+</view>
+
+<view class="footer">
+	<template is="tab-bar" data="{{ dataForTabbar }}"/>
+</view>
+<template name="tFunctionRow">
+	<view class="row">
+		<view wx:for="{{functions.data}}" wx:for-item="tf">
+			<view class="tfImg">
+				<image src="{{tf.iconUrl}}"></image>
+			</view>
+			<view >
+				<text>{{tf.text}}</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<template name="tab-bar">
+  <view class="tab-bar">
+    <view class="tab-item" wx:for="{{ dataForTabbar }}" wx:for-item="tabItem" wx:for-index="index" wx:key="sTitle">
+      <template is="tab-item" data="{{ tabItem }}"></template>
+    </view>
+  </view>
+</template>
+<template name="tab-item">
+  <view class="tab-content" bindtap="onTabItemTap" data-key="{{ tabItem.sTitle }}">
+    <view class="tab-icon">
+      <image src="{{ tabItem.sIconUrl }}"></image>
+    </view>
+    <view class="tab-title">
+      <text>{{ tabItem.sTitle }}</text>
+    </view>
+    <view class="tab-bubble" wx:if="{{ tabItem.iCount > 0}}">
+      <text class="tab-count">{{ tabItem.iCount
+        < 100? tabItem.iCount: 99 }}</text>
+    </view>
+  </view>
+</template>
