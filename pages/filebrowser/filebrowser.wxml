@@ -1,0 +1,26 @@
+<view class="fileNavTitle">
+    <text>{{fileTitle}}</text>	
+</view>
+<view class="fileBrowser" wx:for="{{fileFolders}}" wx:for-item="fileItem">
+	<template is="row" data="{{fileItem}}" ></template>	
+</view>
+<view class="footer">
+	<template is="tab-bar" data="{{ dataForTabbar }}"/>
+</view>
+<template name="row">
+    <view class="row">
+    	<view class="icon">
+	    	<image src="../../Img/right.png"></image>
+    	</view>
+    	<view class="icon" wx:if="{{fileItem.isFolder}}">
+	    	<image src="../../Img/folder.png" ></image>
+    	</view>
+    	<view class="icon" wx:else >
+	    	<image src="../../Img/wave.png" ></image>
+    	</view>
+    	<view class="txt" >
+	    	<text bindtap="inDirectory" data-is-dir="{{fileItem.isFolder}}" data-name="{{fileItem.name}}">{{fileItem.name}}</text>
+    	</view>
+    </view>	
+</template>
+<import src="../template/tabbar.wxml" />

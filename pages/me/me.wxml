@@ -1,0 +1,30 @@
+<view class="pic">
+</view>
+<view class="my-function-list">
+<view class="splitBlock"></view>
+	<view class="func">123123</view>
+	<view class="splitBlock"></view>
+	<view class="func">fasdlfklsd;afk;</view>
+	<view class="splitBlock"></view>
+	<view class="func">aslkjfklsdajflkasd</view>
+	<view class="splitBlock"></view>
+</view>
+<button type="warn" size="default" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="warn"> 注销 </button>
+<view class="footer">
+	<template is="tab-bar" data="{{ dataForTabbar }}"/>
+</view>
+<template name="tFunctionRow">
+	<view class="row">
+		<view wx:for="{{functions.data}}" wx:for-item="tf">
+			<view class="tfImg">
+				<image src="{{tf.iconUrl}}"></image>
+			</view>
+			<view >
+				<text>{{tf.text}}</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<import src="../template/tabbar.wxml"/>

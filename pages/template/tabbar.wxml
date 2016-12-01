@@ -6,9 +6,9 @@
   </view>
 </template>
 <template name="tab-item">
-  <view class="tab-content" bindtap="onTabItemTap" data-key="{{ tabItem.sTitle }}">
+  <view class="tab-content" >
     <view class="tab-icon">
-      <image src="{{ tabItem.sIconUrl }}"></image>
+      <image src="{{ tabItem.sIconUrl }}" bindtap="onTabItemTap" data-key="{{ tabItem.sTitle }}" ></image>
     </view>
     <view class="tab-title">
       <text>{{ tabItem.sTitle }}</text>

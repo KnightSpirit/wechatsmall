@@ -31,7 +31,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="newsTime" bindtap="tapa" data-v="{{newsItem.time}}">
+			<view class="newsTime">
 				<text>发布于 {{newsItem.time}}</text>
 			</view>
 			<view class="splitBlock" ></view>
@@ -55,24 +55,4 @@
 	</view>
 </template>
 
-<template name="tab-bar">
-  <view class="tab-bar">
-    <view class="tab-item" wx:for="{{ dataForTabbar }}" wx:for-item="tabItem" wx:for-index="index" wx:key="sTitle">
-      <template is="tab-item" data="{{ tabItem }}"></template>
-    </view>
-  </view>
-</template>
-<template name="tab-item">
-  <view class="tab-content" bindtap="onTabItemTap" data-key="{{ tabItem.sTitle }}">
-    <view class="tab-icon">
-      <image src="{{ tabItem.sIconUrl }}"></image>
-    </view>
-    <view class="tab-title">
-      <text>{{ tabItem.sTitle }}</text>
-    </view>
-    <view class="tab-bubble" wx:if="{{ tabItem.iCount > 0}}">
-      <text class="tab-count">{{ tabItem.iCount
-        < 100? tabItem.iCount: 99 }}</text>
-    </view>
-  </view>
-</template>
+<import src="../template/tabbar.wxml"/>

@@ -1,0 +1,35 @@
+/* pages/filebrowser/filebrowser.wxss */
+view{
+  font-family: 微软雅黑;
+}
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #F7F7FA;
+  margin-top: 55px;
+  font-family: 微软雅黑;
+}
+.fileNavTitle {
+	height: 30px;
+	background-color: #DADADA;
+	line-height: 30px;
+	padding-left: 8px;
+	font-size: 14px;
+}
+
+.row{
+	font-size: 17px;
+	height: 30px;
+	margin-top: 4px;
+	display: flex;
+	padding-top: 5px;
+}
+
+.row .icon, .row .txt {
+	display: inline-block;
+}
+.row .txt {
+	margin-left: 5px;
+}
+@import "../template/tabbar.wxss";

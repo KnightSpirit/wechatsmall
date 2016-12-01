@@ -146,13 +146,22 @@ let tabName = event.target.dataset.v;
 
 onTabItemTap : function (event){
         let tabName = event.target.dataset.key;
-        wx.showToast({
-            title:tabName,
-            icon : "success",
-            success : function(){
-            }
+        let tabPath;
+        switch (tabName) {
+            case "文件":
+                tabPath = "filebrowser";
+                break;
+            case "段内":
+                tabPath = "index";
+                break;
+            case "我":
+                tabPath = "me";
+                break;                
+        }
+        let url = "../" + tabPath + "/" + tabPath;
+        wx.redirectTo({
+            url:url
         })
     }
-
 }
 )
